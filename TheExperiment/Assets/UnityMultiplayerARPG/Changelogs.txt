@@ -1,0 +1,129 @@
+1.26
+- Add cash shop demo
+- Add IAP/IAB for iOS/Android
+- Fix invalid equipment requirement calculation
+- Add json config file reader for MMO server/MySQL/Sqlite
+
+1.25b
+- Fix invalid map server scene loads
+
+1.25
+- Optimize garbage collections
+- Cache all character data stats it will be updated when there are changes, so it will not re-calculate stats every frame
+- Secure Player Character Entity can jump
+- All Text / InputField changes to use TextWrapper / InputFieldWrapper, we can use wrappers to switch to TextMeshPro components easily, an old user should migrate to use the wrapper see more details at https://medium.com/suriyun-production/mmorpg-kit-1-25-text-inputfield-migration-46d21a846262
+- Add Game Database, you can use this Scriptable Object to add game data that you want to use instead of adding them to Resources folder
+
+1.24
+- Fix duplicating listing data bugs
+- Fix invalid initialize data bugs
+- Fix MMO can't choose character again when cannot connect to Map Server
+- Improve jump animation to triggering when press jump, not play when high y speed
+
+1.23
+- Add Dev extension demo
+- Fix Equip Weapons NULL exceptions
+- Fix Building Object migrate codes obstruct game builds
+- Add safe zone, Player cannot attack other player in safe zone, Monster cannot move into safe zone
+
+1.22
+- Hugh changes of workflows, Now character model will be instantiated as Character entity / Npc entity child, it will attached at same place of Character entity / Npc entity (Migration Guide: https://medium.com/suriyun-production/mmorpg-kit-1-22-changes-note-458cb291687)
+- Build Object will be removed, Now its data moved to Build Entity
+- Show player name / HP at its position
+- Show monster name / HP at its position
+- Show npc name / quest indecation at its position
+- Make an network entity to be partial class and invoke some functions by function name suffix
+- Make an UI to be partial class and invoke some functions by function name suffix
+- Make an game data to be partial class
+- Make game network manager to be partial class and invoke some functions by function name suffix
+
+1.21
+- Equipment Refining
+
+1.20
+- Fix WASD lock attack not working bugs
+- Add missing skill available items description
+- Add Require gold to craft system
+- Add Craft Item Type for NPC Dialog, now you can create Craft Item Dialog by NPC
+- Improve MMO enter map scene from character selection scene, it will disconnect from central server when able to connect to map server
+- Add loading message when waiting for register/login/retrieve character list/create character/delete character
+
+1.19
+- Start scene / other scenes are deprecated, use Map Info instead
+- Add PVP system
+- Add new solution to add NPCs, by using Npc Database
+
+1.18
+- Facebook login integration (Require Facebook SDK: https://developers.facebook.com/docs/unity/)
+- Google login integration (Require Google play games: https://github.com/playgameservices/play-games-plugin-for-unity)
+- Fix cannot set custom missile damage entity to monster entity
+- Fix invalid skill attack range
+- Fix not lock enemy when using skill
+
+1.17
+- Separate (BaseCharacterEntity, PlayerCharacterEntity) to multiple files for more easier to read
+- Add SecurePlayerCharacterEntity which is 100% server authoritative movement but not able to jump
+- Add Player Dealing
+
+1.16
+- NPC can sell items
+- Player can sell items to NPC
+- Move and changes condition codes: Current <= 0 to IsDead()
+
+1.15
+-  Warp portal database system, developer can use this to add warp portals for more convenience than open scene to changes it
+- Harvest system
+- Fix bug, host cannot start game after loaded map scene sometime (Singleplayer/Multiplayer mode)
+- Fix invalid network behaviour missing initialize data
+- Remove predefined LiteNetLib.dll and add it source code directly, so develop will have to remove old plugins file from the project
+
+1.14
+- Building system
+- World's building database
+- Avoid class collision to other projects by add namespaces to some files
+- Improve UI systems
+
+1.12
+- Fix mobile demo UI issues
+- Add legacy animation supports
+- Able to override action animation clips. So if you have difference animations for difference character model, you can override it.
+
+1.11
+- Reduce network message size
+- Stop using tuples, change tuples to structs
+- Stop using ECS, I will bring it back when it's stable
+- Fix missing data when register
+- Add equipment durability
+
+1.10
+- Add MMO Mode
+- Account & Character Management for MMO Mode
+- Multiple map server for MMO Mode
+- Sqlite database for MMO Mode
+- MySql database for MMO Mode
+- Add new log file writer for more ease to read
+- Changes some codes to ECS style
+
+1.04
+- Hungry, Thirsty, Food and Water system
+
+1.03
+- Add `Ammo` items
+- Add crafting system
+- Add passive skills
+- Can set start skill level
+- Prepare some stats for survival mode
+
+1.02
+- Add `controllerMode` to `PlayerCharacterController`, developer can set it to PointClick or WASD or Both
+- Add `wasdLockAttackTarget` that if it TRUE, it will lock close character to attack
+- Add `lockAttackTargetDistance` this value will be used to find close character to attack (it will sum with attack distance)
+- Fix level up multiple times but does not increase statpoint / skillpoint multiple times
+- Fix invalid exp calculation when level up multiple times
+- Fix collect item quest tasks not consume items
+
+1.01
+- Add mobile controllers
+- Prepare some stats for survival mode
+- Change gameplay rule class to be ScriptableObject
+- Change game instance extra to network settings so developers can changes network settings easily
